@@ -66,7 +66,8 @@
   // --- CLOCK ---
 
   function updateClock() {
-    const now = new Date();
+    // const now = new Date();
+    const now = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Madrid" }));
     const hours = String(now.getHours()).padStart(2, "0");
     const minutes = String(now.getMinutes()).padStart(2, "0");
 
@@ -126,6 +127,7 @@
   function fetchWeather(lat, lon) {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
 
+    // Para compatibilidad con Amaone Kindle, se verifica si fetch está disponible antes de usarlo
     if (window.fetch) {
       fetch(url)
         .then((res) => res.json())
