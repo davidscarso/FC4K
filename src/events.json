@@ -1,0 +1,46 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "date": "2026-08-01",
+      "time": "09:00",
+      "title": "Reunión equipo",
+      "detail": "Revisión semanal del proyecto"
+    },
+    {
+      "id": 2,
+      "date": "2026-08-01",
+      "time": "12:00",
+      "title": "Comprar supermercado",
+      "detail": "Frutas, verduras, leche"
+    },
+    {
+      "id": 3,
+      "date": "2026-08-01",
+      "time": "18:00",
+      "title": "Película en casa",
+      "detail": "Noche de cine familiar"
+    },
+    {
+      "id": 4,
+      "date": "2026-08-02",
+      "time": "10:00",
+      "title": "Dentista",
+      "detail": "Revisión anual"
+    },
+    {
+      "id": 5,
+      "date": "2026-08-03",
+      "time": "",
+      "title": "Cumpleaños María",
+      "detail": "Comprar regalo"
+    },
+    {
+      "id": 6,
+      "date": "2026-08-05",
+      "time": "19:00",
+      "title": "Cena con amigos",
+      "detail": "Restaurante La Terraza"
+    }
+  ]
+}

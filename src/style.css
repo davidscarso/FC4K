@@ -1,0 +1,252 @@
+:root {
+  --bg: #ffffff;
+  --surface: #e8e8e8;
+  --surface-hover: #d0d0d0;
+  --border: #aaaaaa;
+  --border-strong: #666666;
+  --text: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.device {
+  width: 100%;
+  max-width: 800px;
+  min-height: 600px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  background-color: var(--surface);
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.15s;
+}
+
+.nav-btn:hover {
+  background: var(--surface-hover);
+}
+
+.nav-btn:focus-visible {
+  outline: 2px solid var(--border-strong);
+  outline-offset: 2px;
+}
+
+.nav-today {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+/* CLOCK */
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.clock-time {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text);
+  line-height: 1;
+}
+
+.clock-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  text-transform: capitalize;
+}
+
+/* WEATHER */
+.weather {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  min-width: 160px;
+}
+
+.weather-icon {
+  font-size: 1.4rem;
+}
+
+.weather-temp {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.weather-location {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* EVENTS SECTION */
+.events-section {
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: var(--border);
+  margin: 16px 0;
+}
+
+/* EVENT CARDS */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.events-empty {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.event-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.event-card:hover {
+  background: var(--surface-hover);
+}
+
+.event-time {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text);
+  min-width: 44px;
+  white-space: nowrap;
+}
+
+.event-time--allday {
+  color: var(--text-secondary);
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.event-title {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.event-detail {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* FOOTER */
+.footer {
+  padding: 10px 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .weather {
+    min-width: auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .clock-time {
+    font-size: 2rem;
+  }
+}

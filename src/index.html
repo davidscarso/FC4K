@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario Familiar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="device">
+    <header class="header">
+      <nav class="nav">
+        <button class="nav-btn" id="prevDay" aria-label="Día anterior">◀</button>
+        <button class="nav-btn nav-today" id="todayBtn">HOY</button>
+        <button class="nav-btn" id="nextDay" aria-label="Día siguiente">▶</button>
+      </nav>
+
+      <div class="clock">
+        <span class="clock-time" id="clockTime">00:00</span>
+        <span class="clock-date" id="clockDate">—</span>
+      </div>
+
+      <div class="weather" id="weather">
+        <span class="weather-icon" id="weatherIcon">--</span>
+        <span class="weather-temp" id="weatherTemp">--°</span>
+        <span class="weather-location" id="weatherLocation">—</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="events-section">
+        <h2 class="section-title">HOY</h2>
+        <div class="events-list" id="todayEvents">
+          <p class="events-empty">No hay eventos hoy</p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section class="events-section">
+        <h2 class="section-title">PRÓXIMOS</h2>
+        <div class="events-list" id="upcomingEvents">
+          <p class="events-empty">No hay eventos próximos</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="footer-text" id="lastUpdate">Última actualización: —</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
