@@ -66,17 +66,17 @@
   // --- CLOCK ---
 
   function updateClock() {
-    // const now = new Date();
-    const now = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Madrid" }));
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const now = new Date();
+    const horaMadrid = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Madrid" }));
+    const hours = String(horaMadrid.getHours()).padStart(2, "0");
+    const minutes = String(horaMadrid.getMinutes()).padStart(2, "0");
 
     document.getElementById("clockTime").textContent = `${hours}:${minutes}`;
 
-    const dayName = DAYS_ES[now.getDay()];
-    const dayNum = now.getDate();
-    const monthName = MONTHS_ES[now.getMonth()];
-    const year = now.getFullYear();
+    const dayName = DAYS_ES[horaMadrid.getDay()];
+    const dayNum = horaMadrid.getDate();
+    const monthName = MONTHS_ES[horaMadrid.getMonth()];
+    const year = horaMadrid.getFullYear();
 
     document.getElementById("clockDate").textContent =
       `${dayName} ${dayNum} de ${monthName} de ${year}`;
