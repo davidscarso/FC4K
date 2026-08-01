@@ -126,16 +126,32 @@
   function fetchWeather(lat, lon) {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        weatherData = data.current;
-        renderWeather();
-      })
-      .catch(() => {
-        document.getElementById("weatherIcon").textContent = "--";
-        document.getElementById("weatherTemp").textContent = "--°";
-      });
+    if (window.fetch) {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          weatherData = data.current;
+          renderWeather();
+        })
+        .catch(() => {
+          document.getElementById("weatherIcon").textContent = "--";
+          document.getElementById("weatherTemp").textContent = "--°";
+        });
+    } else {
+      document.getElementById("weatherIcon").textContent = "--";
+      document.getElementById("weatherTemp").textContent = "--°";
+    }
+
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     weatherData = data.current;
+    //     renderWeather();
+    //   })
+    //   .catch(() => {
+    //     document.getElementById("weatherIcon").textContent = "--";
+    //     document.getElementById("weatherTemp").textContent = "--°";
+    //   });
   }
 
   function renderWeather() {
