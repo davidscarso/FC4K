@@ -21,7 +21,22 @@
     95: "⛈", 96: "⛈", 99: "⛈"
   };
 
-  let allEvents = [];
+  const DEFAULT_LOCATION = {
+    lat: 37.3890,
+    lon: -1.9364,
+    name: "Huercal-Overa"
+  };
+// TODO: scar esto de aca luego quye xista una api desde donde obter los eventos, por ahora se simula con datos locales
+  const INITIAL_EVENTS = [
+    { id: 1, date: "2026-08-01", time: "09:00", title: "Reunión equipo", detail: "Revisión semanal del proyecto" },
+    { id: 2, date: "2026-08-01", time: "12:00", title: "Comprar supermercado", detail: "Frutas, verduras, leche" },
+    { id: 3, date: "2026-08-01", time: "18:00", title: "Película en casa", detail: "Noche de cine familiar" },
+    { id: 4, date: "2026-08-02", time: "10:00", title: "Dentista", detail: "Revisión anual" },
+    { id: 5, date: "2026-08-03", time: "", title: "Cumpleaños María", detail: "Comprar regalo" },
+    { id: 6, date: "2026-08-05", time: "19:00", title: "Cena con amigos", detail: "Restaurante La Terraza" }
+  ];
+
+  let allEvents = INITIAL_EVENTS.slice();
   let selectedDate = new Date();
   let weatherData = null;
 
@@ -69,10 +84,12 @@
   // --- GEOLOCATION & WEATHER ---
 
   function initGeolocation() {
-    if (!navigator.geolocation) {
-      document.getElementById("weatherLocation").textContent = "Sin GPS";
-      return;
-    }
+    // if (!navigator.geolocation) {
+    //   reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    //   fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    //   document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
+    //   return;
+    // }
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -81,7 +98,9 @@
         fetchWeather(latitude, longitude);
       },
       () => {
-        document.getElementById("weatherLocation").textContent = "Sin ubicación";
+        reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+        fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+        document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
       }
     );
   }
@@ -128,17 +147,9 @@
   // --- EVENTS ---
 
   function loadEvents() {
-    fetch("events.json")
-      .then((res) => res.json())
-      .then((data) => {
-        allEvents = data.events || [];
-        renderEvents();
-        updateLastUpdate();
-      })
-      .catch(() => {
-        allEvents = [];
-        renderEvents();
-      });
+    allEvents = INITIAL_EVENTS.slice();
+    renderEvents();
+    updateLastUpdate();
   }
 
   function renderEvents() {
