@@ -26,7 +26,7 @@
     lon: -1.9364,
     name: "Huercal-Overa"
   };
-// TODO: scar esto de aca luego quye xista una api desde donde obter los eventos, por ahora se simula con datos locales
+  // TODO: scar esto de aca luego quye xista una api desde donde obter los eventos, por ahora se simula con datos locales
   const INITIAL_EVENTS = [
     { id: 1, date: "2026-08-01", time: "09:00", title: "Reunión equipo", detail: "Revisión semanal del proyecto" },
     { id: 2, date: "2026-08-01", time: "12:00", title: "Comprar supermercado", detail: "Frutas, verduras, leche" },
@@ -84,25 +84,29 @@
   // --- GEOLOCATION & WEATHER ---
 
   function initGeolocation() {
-    if (!navigator.geolocation) {
-      reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
-      fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
-      document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
-      return;
-    }
+    // if (!navigator.geolocation) {
+    //   reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    //   fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    //   document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
+    //   return;
+    // }
 
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const { latitude, longitude } = pos.coords;
-        reverseGeocode(latitude, longitude);
-        fetchWeather(latitude, longitude);
-      },
-      () => {
-        reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
-        fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
-        document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
-      }
-    );
+    // navigator.geolocation.getCurrentPosition(
+    //   (pos) => {
+    //     const { latitude, longitude } = pos.coords;
+    //     reverseGeocode(latitude, longitude);
+    //     fetchWeather(latitude, longitude);
+    //   },
+    //   () => {
+    //     reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    //     fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    //     document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
+    //   }
+    // );
+
+    reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
   }
 
   function reverseGeocode(lat, lon) {
