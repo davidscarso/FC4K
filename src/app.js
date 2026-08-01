@@ -104,7 +104,7 @@
     //   }
     // );
 
-    reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+    // reverseGeocode(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
     fetchWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
     document.getElementById("weatherLocation").textContent = DEFAULT_LOCATION.name;
   }
